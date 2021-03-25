@@ -6,6 +6,8 @@ import Login from './components/Login'
 import ToDoApp from './components/ToDoApp'
 import Movies from './components/Movies'
 
+import ApiHandler from './api/ApiHandler'
+
 import React from 'react';
 import {
   BrowserRouter as Router,
