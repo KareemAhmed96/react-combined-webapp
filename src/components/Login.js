@@ -22,7 +22,7 @@ class Login extends React.Component {
 
     if(response.error) {
       this.setState({error:response.error})
-      console.log(this.state.error)
+      console.log(response.error)
     }
     else {
       console.log(response)
@@ -39,8 +39,11 @@ class Login extends React.Component {
     return (
       <div>
         <h1>Login Page</h1>
-        Email <input type="email" value={this.state.email} name="email" onChange={this.changeInput}/><br />
+
+        Email <input value={this.state.email} name="email" onChange={this.changeInput}/><br />
+        
         Password <input type="password" value={this.state.password} name="password" onChange={this.changeInput}/><br />
+       
         <button onClick={this.login} >Login</button>
 
       </div>
