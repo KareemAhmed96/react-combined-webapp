@@ -6,7 +6,7 @@ class Movies extends React.Component {
     constructor() {
         super();
         this.state = {
-            avatars: [],
+            movies: [],
             error: "",
         }
     }
@@ -22,11 +22,14 @@ class Movies extends React.Component {
             //console.log(response.data[0].avatar)
             response.data.map(
                 (ele) => {
-                    this.state.avatars.push(ele.avatar)
+                    this.state.movies.push({
+                        name: ele.first_name,
+                        avatar: ele.avatar
+                     })
                 }
             )
-            this.forceUpdate()
             console.log(this.state.avatars)
+            this.forceUpdate()
         }
         else {
             console.log(response)
@@ -40,9 +43,12 @@ class Movies extends React.Component {
           <h1>Movies Page</h1>
           
           <ul>
-            {this.state.avatars.map(
-                (ele) => (
-                    <li class="movie" ><img src={ele} ></img></li>
+            {this.state.movies.map(
+                (ele, index) => (
+                    <li className="movie" key={index}>
+                        <div>Movie Name: {ele.name}</div>
+                        <img src={ele.avatar} ></img>
+                    </li>
                 )
             )}
           </ul>
