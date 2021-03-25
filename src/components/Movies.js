@@ -28,7 +28,6 @@ class Movies extends React.Component {
                      })
                 }
             )
-            console.log(this.state.avatars)
             this.forceUpdate()
         }
         else {

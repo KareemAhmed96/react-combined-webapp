@@ -3,7 +3,7 @@ import './App.css';
 
 import Home from './components/Home'
 import Login from './components/Login'
-import ToDoApp from './components/ToDoApp'
+import TodoApp from './components/TodoApp'
 import Movies from './components/Movies'
 
 import ApiHandler from './api/ApiHandler'
@@ -35,7 +35,7 @@ class App extends React.Component {
                 <Link to="/login">Login Link</Link>
               </li>
               <li>
-                <Link to="/todo">ToDo App Link</Link>
+                <Link to="/todo">Todo App Link</Link>
               </li>
               <li>
                 <Link to="/movies">Movies Link</Link>
@@ -50,7 +50,7 @@ class App extends React.Component {
               <Movies />
             </Route>
             <Route path="/todo">
-              <ToDoApp />
+              <TodoApp />
             </Route>
             <Route path="/login">
               <Login />
