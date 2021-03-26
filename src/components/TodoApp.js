@@ -50,7 +50,7 @@ class TodoApp extends React.Component {
     );
     this.state.items.splice(index, 1)
     this.forceUpdate()
-    
+
     // this.state.items.map(
     //   (task, index, taskArray) => {
     //     if(taskId == task.id) {
@@ -60,11 +60,16 @@ class TodoApp extends React.Component {
     // )
   }
 
+  toggleDone = (itemObj) => {
+    itemObj.done = !itemObj.done
+    this.forceUpdate()
+  }
+
   render() {
     return (
       <div>
         <h1>Todo App Page</h1>
-        <TodoList list={this.state.items} onDelete={this.deleteTask}/>
+        <TodoList list={this.state.items} onDelete={this.deleteTask} onToggleDone={this.toggleDone} />
         <TodoForm onAddTask={this.addTask} />
       </div>
     )
