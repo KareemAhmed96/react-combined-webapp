@@ -9,7 +9,7 @@ class TodoList extends React.Component {
         this.state = {
           
         }
-      }
+    }
     
     render() {
         return (
@@ -18,7 +18,9 @@ class TodoList extends React.Component {
                 <ul>
                     {this.props.list.map(
                         (ele, index) => (
-                            <li key={index} ><TodoItem task={ele.text} /></li>
+                            <li>
+                                <TodoItem key={ele.id} task={ele} onDelete={this.props.onDelete}/>
+                            </li>
                         )
                     )}
                 </ul>

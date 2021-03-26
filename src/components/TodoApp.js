@@ -41,14 +41,30 @@ class TodoApp extends React.Component {
     this.state.items.push(newTask)
     console.log(this.state.items)
     this.forceUpdate()
+  }
 
+  deleteTask = (taskId) => {
+    
+    let index = this.state.items.findIndex(
+      (item) => item.id == taskId
+    );
+    this.state.items.splice(index, 1)
+    this.forceUpdate()
+    
+    // this.state.items.map(
+    //   (task, index, taskArray) => {
+    //     if(taskId == task.id) {
+    //       taskArray.splice(taskId, 1)
+    //     }
+    //   }
+    // )
   }
 
   render() {
     return (
       <div>
         <h1>Todo App Page</h1>
-        <TodoList list={this.state.items} />
+        <TodoList list={this.state.items} onDelete={this.deleteTask}/>
         <TodoForm onAddTask={this.addTask} />
       </div>
     )
