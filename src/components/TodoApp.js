@@ -10,7 +10,19 @@ class TodoApp extends React.Component {
   constructor() {
     super();
     this.state = {
-      items: ["Task_1", "Task_2", "Task_3", "Task_4"]
+      items: [
+        //dummy task objects
+        {
+          text: "Task_1",
+          done: false,
+          id: this.id++
+        },
+        {
+          text: "Task_2",
+          done: false,
+          id: this.id++
+        },
+      ]
     }
   }
 
@@ -18,12 +30,26 @@ class TodoApp extends React.Component {
     
   }
 
+  addTask = (task) => {
+
+    let newTask = {
+      text: task,
+      done: false,
+      id: this.id++
+    }
+
+    this.state.items.push(newTask)
+    console.log(this.state.items)
+    this.forceUpdate()
+
+  }
+
   render() {
     return (
       <div>
         <h1>Todo App Page</h1>
-        <TodoList list={this.state.items}/>
-        <TodoForm />
+        <TodoList list={this.state.items} />
+        <TodoForm onAddTask={this.addTask} />
       </div>
     )
   }

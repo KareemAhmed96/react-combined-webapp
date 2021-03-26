@@ -18,7 +18,7 @@ class TodoList extends React.Component {
                 <ul>
                     {this.props.list.map(
                         (ele, index) => (
-                            <li key={index} ><TodoItem task={ele} /></li>
+                            <li key={index} ><TodoItem task={ele.text} /></li>
                         )
                     )}
                 </ul>
