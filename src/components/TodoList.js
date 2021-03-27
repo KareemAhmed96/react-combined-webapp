@@ -18,7 +18,7 @@ class TodoList extends React.Component {
                 <ul>
                     {this.props.list.map(
                         (ele, index) => (
-                            <li>
+                            <li key={index}>
                                 <TodoItem key={ele.id} task={ele} onDelete={this.props.onDelete} onToggleDone={this.props.onToggleDone} />
                             </li>
                         )
